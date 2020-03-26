@@ -4,7 +4,7 @@ import {
   readFileSync,
   unlinkSync,
   writeFileSync,
-  fstatSync
+  statSync
 } from "fs";
 import { basename } from "path";
 function start() {
@@ -14,7 +14,7 @@ function start() {
       continue;
     }
 
-    const stat = fstatSync(filename);
+    const stat = statSync(filename);
     if (stat.isDirectory()) {
       continue;
     }
