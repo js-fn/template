@@ -4,7 +4,7 @@ import {
   readFileSync,
   unlinkSync,
   writeFileSync,
-  statSync,
+  statSync
 } from "fs";
 
 import { basename } from "path";
@@ -28,20 +28,7 @@ function start() {
     writeFileSync(filename, fileContent);
   }
 
-  execFileSync(
-    "npm",
-    [
-      "install",
-      "--save-dev",
-      "codecov",
-      "eslint",
-      "nyc",
-      "prettier",
-      "testami",
-    ],
-    { stdio: "inherit" }
-  );
-
+  execFileSync("npm", ["ci"], { stdio: "inherit" });
   execFileSync("npm", ["test"], { stdio: "inherit" });
 }
 
