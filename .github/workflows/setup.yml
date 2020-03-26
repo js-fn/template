@@ -13,7 +13,8 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - run: node setup.mjs
+      - if: github.repository != 'js-fn/template'
+        run: node setup.mjs
 
       - uses: stefanzweifel/git-auto-commit-action@v4.1.1
         with:
