@@ -2,6 +2,8 @@ name: CI
 on: [push]
 jobs:
   build:
+    if: github.repository != 'js-fn/template'
+
     runs-on: ubuntu-latest
 
     strategy:
