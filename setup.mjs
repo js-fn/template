@@ -1,10 +1,21 @@
 import { execFileSync } from "child_process";
-import { readdirSync, readFileSync, unlinkSync, writeFileSync } from "fs";
+import {
+  readdirSync,
+  readFileSync,
+  unlinkSync,
+  writeFileSync,
+  fstatSync
+} from "fs";
 import { basename } from "path";
 function start() {
   const packageName = basename(process.cwd());
   for (let filename of readdirSync(".")) {
-    if (filename === "setup.mjs" || filename === "." || filename === ".." || ) {
+    if (filename === "setup.mjs") {
+      continue;
+    }
+
+    const stat = fstatSync(filename);
+    if (stat.isDirectory()) {
       continue;
     }
 
