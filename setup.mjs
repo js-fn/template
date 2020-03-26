@@ -4,7 +4,7 @@ import {
   readFileSync,
   unlinkSync,
   writeFileSync,
-  statSync
+  statSync,
 } from "fs";
 
 import { basename } from "path";
