@@ -3,12 +3,12 @@ import { readdirSync, readFileSync, unlinkSync, writeFileSync } from "fs";
 import { basename } from "path";
 function start() {
   const packageName = basename(process.cwd());
-  for (const filename of readdirSync(".")) {
-    if (filename === "setup.mjs") {
+  for (let filename of readdirSync(".")) {
+    if (filename === "setup.mjs" || filename === "." || filename === ".." || ) {
       continue;
     }
 
-    const fileContent = readFileSync(filename, "utf8");
+    let fileContent = readFileSync(filename, "utf8");
     fileContent = fileContent.replace(/__package_name__/g, packageName);
     unlinkSync(filename);
     filename = filename.replace(/__package_name__/g, packageName);
