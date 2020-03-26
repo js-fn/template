@@ -4,9 +4,11 @@ import {
   readFileSync,
   unlinkSync,
   writeFileSync,
-  statSync
+  statSync,
 } from "fs";
+
 import { basename } from "path";
+
 function start() {
   const packageName = basename(process.cwd());
   for (let filename of readdirSync(".")) {
@@ -26,17 +28,21 @@ function start() {
     writeFileSync(filename, fileContent);
   }
 
-  execFileSync("npm", [
-    "install",
-    "--save-dev",
-    "codecov",
-    "eslint",
-    "nyc",
-    "prettier",
-    "testami"
-  ]);
+  execFileSync(
+    "npm",
+    [
+      "install",
+      "--save-dev",
+      "codecov",
+      "eslint",
+      "nyc",
+      "prettier",
+      "testami",
+    ],
+    { stdio: "inherit" }
+  );
 
-  execFileSync("npm", ["test"]);
+  execFileSync("npm", ["test"], { stdio: "inherit" });
 }
 
 start();
