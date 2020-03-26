@@ -14,7 +14,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - if: github.repository != 'js-fn/template'
-        run: node setup.mjs
+        run: node setup.mjs && mv .github/workflows/CI.__yml__ .github/workflows/CI.yml && rm .github/workflows/setup.yml
 
       - uses: stefanzweifel/git-auto-commit-action@v4.1.1
         with:
