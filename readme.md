@@ -1,7 +1,7 @@
 <center>
   <h1 align="center">__package_name__ function</h1>
   <p align="center">
-    <a href="https://codecov.io/js-fn/__package_name__" rel="nofollow">
+    <a href="https://codecov.io/gh/js-fn/__package_name__" rel="nofollow">
       <img src="https://codecov.io/gh/js-fn/__package_name__/branch/master/graph/badge.svg?refresh">
     </a>
     <a href="https://github.com/prettier/prettier">
